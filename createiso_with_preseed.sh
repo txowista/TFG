@@ -5,6 +5,7 @@ chmod +w  netinst/install.amd/initrd.gz
 gunzip netinst/install.amd/initrd.gz
 echo preseed.cfg | cpio -H newc -o -A -F netinst/install.amd/initrd
 echo randompass.sh | cpio -H newc -o -A -F netinst/install.amd/initrd
+echo efiboot.sh | cpio -H newc -o -A -F netinst/install.amd/initrd
 gzip netinst/install.amd/initrd
 chmod -w -R netinst/install.amd
 chmod +w netinst/md5sum.txt

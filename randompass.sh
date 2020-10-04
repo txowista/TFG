@@ -4,6 +4,8 @@
 . /usr/share/debconf/confmodule
 PASS=$(cat /dev/urandom | tr -dc A-Za-z0-9 | head -c 13)
 FIRST_DISK=`list-devices disk | head -n1`
+echo "PASS=$PASS" > /tmp/variable.txt
+echo "DISK=$FIRST_DISK" >> /tmp/variable.txt
 # Create the template file
 cat > /tmp/randompass.template <<'!EOF!'
 Template: random-pass/title

@@ -1,16 +1,16 @@
 #!/bin/bash
 chmod +w -R netinst/install/
-cp netinst_limpio/install/initrd.gz netinst/install/initrd.gz
+#cp netinst_limpio/install/initrd.gz netinst/install/initrd.gz
 mkdir -p tmp/initrd
 cd tmp/initrd
-zcat ../../netinst_limpio/install/initrd.gz | cpio -iv
+zcat ../../netinst_limpio/install.amd/initrd.gz | cpio -iv
 cp ../../preseed.cfg .
 cp ../../randompass.sh .
 cp ../../efiboot.sh .
 cp ../../script_ch.sh .
 mkdir -p lib/firmware
 cp -a ../../rtl_nic lib/firmware
-find . -print0 | cpio -0 -H newc -ov | gzip -c > ../../netinst/install/initrd.gz
+find . -print0 | cpio -0 -H newc -ov | gzip -c > ../../netinst/install.amd/initrd.gz
 cd ../../
 rm -fr tmp/initrd
 chmod -w -R netinst/install

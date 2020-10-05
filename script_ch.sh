@@ -22,4 +22,4 @@ tpm2_flushcontext -t
 tpm2_load -C primary.context -u obj.pub -r obj.priv -o load.context
 tpm2_flushcontext -t
 tpm2_evictcontrol -c load.context -p 0x81000010
-rm secret.bin pcrs.bin policy.digest primary.context obj.pub obj.priv load.context
+#rm secret.bin pcrs.bin policy.digest primary.context obj.pub obj.priv load.context

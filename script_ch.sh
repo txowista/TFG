@@ -1,6 +1,8 @@
 #!/bin/bash
 PASS=`grep -e PASS /tmp/variable.txt| cut -d'=' -f 2`
-DISK=`grep -e FIRST_DISK /tmp/variable.txt| cut -d'=' -f 2`
+DISK=`grep -e DISK /tmp/variable.txt| cut -d'=' -f 2`
+EFINUMBER=`efibootmgr | grep enigmedia | cut -d "*" -f1 | cut -d "t" -f2`
+efibootmgr -b $EFINUMBER -B
 efibootmgr -c -d $DISK -p 1 -w -L enigmedia -l '\EFI\BOOT\BOOTX64.EFI'
 modprobe tpm 
 modprobe tpm_tis
